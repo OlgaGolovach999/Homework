@@ -47,7 +47,7 @@ public class Student {
         this.averageGrade = newAverageGrade;
     }
 
-    public static Student[] getStudents(Student[] students, int mark) {
+       public Student[] getStudents(Student[] students, int mark) {
         ArrayList<Student> filteredStudents = new ArrayList<>();
         for (Student student : students) {
             if (student.averageGrade > mark) {

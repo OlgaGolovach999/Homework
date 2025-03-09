@@ -46,8 +46,9 @@ public class MainStudent {
         students[3] = new Student(4, "Екатерина", "Смирнова", "Биологии", 4, "Б1", 8);
         students[4] = new Student(5, "Юлия", "Кузнецова", "Химии", 3, "Х2", 6);
 
-        Student[] highMarkStudents = Student.getStudents(students, 7);
-        System.out.println("Студенты с оценками выше 7:");
+        Student best = new Student();
+        Student[] highMarkStudents = best.getStudents(students, 8);
+        System.out.println("Студенты с оценками выше 8:");
         for (Student student : highMarkStudents) {
             student.info();
             System.out.println();
