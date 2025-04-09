@@ -36,15 +36,34 @@ public class Department {
         int femaleCount = 0;
 
         for (Ward ward : wards) {
-            for (Patient patient : ward.getPatients()) {
-                if (patient.getGender() == Patient.Gender.МУЖСКОЙ) {
-                    maleCount++;
-                } else if (patient.getGender() == Patient.Gender.ЖЕНСКИЙ) {
-                    femaleCount++;
-                }
-            }
+            maleCount += countMalePatientsInWard(ward);
+            femaleCount += countFemalePatientsInWard(ward);
         }
 
+        displayGenderCounts(maleCount, femaleCount);
+    }
+
+    private int countMalePatientsInWard(Ward ward) {
+        int count = 0;
+        for (Patient patient : ward.getPatients()) {
+            if (patient.getGender() == Patient.Gender.МУЖСКОЙ) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private int countFemalePatientsInWard(Ward ward) {
+        int count = 0;
+        for (Patient patient : ward.getPatients()) {
+            if (patient.getGender() == Patient.Gender.ЖЕНСКИЙ) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private void displayGenderCounts(int maleCount, int femaleCount) {
         System.out.println("Количество мужчин в отделении: " + maleCount);
         System.out.println("Количество женщин в отделении: " + femaleCount);
     }
